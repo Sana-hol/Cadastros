@@ -1,17 +1,17 @@
 <?php
-// Connect to the MySQL database
+
 $host = "localhost";
-$user = "username";
-$password = "password";
-$database = "mydatabase";
+$user = "root";
+$password = "19372486";
+$database = "new_schema";
 $conn = mysqli_connect($host, $user, $password, $database);
 
-// Check for errors
+
 if (mysqli_connect_errno()) {
   die("Failed to connect to MySQL: " . mysqli_connect_error());
 }
 
-// Prepare the SQL query
+
 $sql = "SELECT * FROM mytable";
 
 // Execute the query
