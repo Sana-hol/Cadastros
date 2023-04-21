@@ -1,9 +1,10 @@
 <?php
+// Conect db
 $host = "localhost";
 $user = "root";
-$password = "19372486";
-$database = "new_schema";
-$conn = mysqli_connect($host, $user, $password, $database);
+$pass = "19372486";
+$dbname = "new_schema";
+$conn = mysqli_connect($host, $user, $pass, $dbname);
 
 
 // Check for errors
