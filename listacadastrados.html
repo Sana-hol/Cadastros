@@ -9,9 +9,10 @@
     <script src="getlist.js"></script>
     <script src="formatt.js"></script>
 </head>
-<body onload="GetList(); Hoverover()">
+<body onload="GetList()">
     <button onclick="toggleEditable()">Edit</button>
     <button onclick="clearTable(); GetList();">Refresh clientes</button>
+    <button onclick="updateData()">save</button>
     <table id="myTable">
         <thead>
             <tr>
@@ -21,7 +22,7 @@
                 <th>Telefone 2</th>
                 <th>Endereço</th>
                 <th>CPF</th>
-            </tr>
+            </tr>   
         </thead>
         <tbody>
         </tbody>

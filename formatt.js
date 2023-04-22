@@ -10,40 +10,38 @@ function toggleEditable() {
 }
 
 
-function Hoverover(){$(document).ready(function() {
-	// Add click event to table header cells
-	$('td').click(function() {
-		// Get current value of the header cell
-		var currentValue = $(this).text();
-		// Create an input field with the current value
-		var inputField = '<input type="text" value="' + currentValue + '">';
-		// Replace the header cell's text with the input field
-		$(this).html(inputField);
-		// Focus on the input field
-		$(this).find('input').focus();
-	});
-
-	// Add blur event to input fields
-	$(document).on('blur', 'th input', function() {
-		// Get the new value from the input field
-		var newValue = $(this).val();
-		// Get the column name from the header cell's data attribute
-		var columnName = $(this).parent().data('column-name');
-		// Get the row ID from the header cell's data attribute
-		var rowId = $(this).parent().data('row-id');
-		// Send an AJAX request to update the row in the database
-		$.ajax({
-			type: 'POST',
-			url: 'update_row.php',
-			data: {columnName: columnName, rowId: rowId, newValue: newValue},
-			success: function(response) {
-				// Replace the input field with the new value
-				$(this).parent().text(newValue);
-			},
-			error: function() {
-				alert('An error occurred while updating the row.');
-			}
-		});
-	});
-});
-}
+function updateData() {
+	var table = document.getElementById("myTable");
+	var rows = table.rows;
+	var data = [];
+  
+	// Loop through all rows except the header
+	for (var i = 1; i < rows.length; i++) {
+	  var cells = rows[i].cells;
+	  var rowData = {};
+  
+	  // Get the data for each cell in the row
+	  rowData.id = cells[0].innerHTML;
+	  rowData.nome = cells[1].innerHTML;
+	  rowData.telefone = cells[2].innerHTML;
+	  rowData.telefone2 = cells[3].innerHTML;
+	  rowData.endereco = cells[4].innerHTML;
+	  rowData.cpf = cells[5].innerHTML;
+  
+	  data.push(rowData);
+	}
+  
+	// Send the data to the server using AJAX
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "dataupdate.php", true);
+	xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	xhr.onload = function () {
+	  if (xhr.readyState === xhr.DONE) {
+		if (xhr.status === 200) {
+		  console.log(xhr.responseText);
+		}
+	  }
+	};
+	xhr.send(JSON.stringify(data));
+  }
+  
