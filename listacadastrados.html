@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <title>Retrieve Data</title>
+    <title>Lista de Cadastros</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="jquery.js"></script>
+    <script src="getlist.js"></script>
+    <script src="formatt.js"></script>
 </head>
-<body>
-
+<body onload="GetList(); Hoverover()">
+    <button onclick="toggleEditable()">Edit</button>
+    <button onclick="clearTable(); GetList();">Refresh clientes</button>
     <table id="myTable">
         <thead>
             <tr>
+                <th>index</th>
                 <th>Nome</th>
                 <th>Telefone</th>
                 <th>Telefone 2</th>
@@ -22,7 +27,7 @@
         </tbody>
     </table>
 
-    <script src="getlist.js"></script>
+    
 
 </body>
 </html>

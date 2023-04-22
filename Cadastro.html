@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="jquery.js"></script>
+    <script src="getlist.js"></script>
     <title>Formulário de clientes</title>
+    
   </head>
-  <body>
+  <body onload="GetList()">
     <h1>Cadastro de clientes</h1>
     <form id="cliente-form" method="POST">
       <label for="nome">Nome:</label>
@@ -23,10 +28,24 @@
       <br>
       <button type="submit">Enviar</button>
     </form>
-    <script src="jquery.js"></script>
-    <script src="cliente.js"></script>
-    <script src="getlist.js"></script>
     
+    <button onclick="clearTable(); GetList();">Refresh clientes</button>
+    <table id="myTable">
+      <thead>
+          <tr>
+              <th>index</th>
+              <th>Nome</th>
+              <th>Telefone</th>
+              <th>Telefone 2</th>
+              <th>Endereço</th>
+              <th>CPF</th>
+          </tr>
+      </thead>
+      <tbody>
+      </tbody>
+  </table>
+
+  <script src="cliente.js"></script>
     
   </body>
 </html>
