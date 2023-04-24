@@ -5,8 +5,20 @@ function clearTable() {
     // Start from the last row and remove each row
     for (var i = rowCount - 1; i > 0; i--) {
       table.deleteRow(i);
-    }
+    };
+    GetList();
   };
+
+function clearTableedit() {
+    var table = document.getElementById("myTable");
+    var rowCount = table.rows.length;
+  
+    // Start from the last row and remove each row
+    for (var i = rowCount - 1; i > 0; i--) {
+      table.deleteRow(i);
+    };
+    GetListEdit();
+  };  
   
   function EnviarCadastro(){
     const form = document.getElementById("cliente-form");
@@ -34,38 +46,28 @@ function clearTable() {
 
 
   };
-  function GetListEdit(){
-    $(document).ready(function() {
-        $.ajax({
-            url: "getlist.php",
-            type: "GET",
-            dataType: "json",
-            success: function(data) {
-                var len = data.length;
-                for (var i = len - 1 ; i >= 0; i--) {
-                    var index = data[i].id;
-                    var nome = data[i].Nome;
-                    var telefone = data[i].Telefone;
-                    var telefone2 = data[i].Telefone2;
-                    var endereco = data[i].Endereco;
-                    var cpf = data[i].CPF;
-                    var row = "<tr><td contentEditable='false' > <button onclick=DeleteEntry(this.id) id="+index+">delete</button></td><td>" + index + "</td><td contentEditable='false'>" + nome + "</td><td contentEditable='false'>" + telefone + "</td><td contentEditable='false'>" + telefone2 + "</td><td contentEditable='false'>" + endereco + "</td><td contentEditable='false'>" + cpf + "</td></tr>";
-                    $("#myTable tbody").append(row);
-                }
-            }
-        });
-    });
+function GetListEdit(){
+  $(document).ready(function() {
+      $.ajax({
+          url: "getlist.php",
+          type: "GET",
+          dataType: "json",
+          success: function(data) {
+              var len = data.length;
+              for (var i = len - 1 ; i >= 0; i--) {
+                  var index = data[i].id;
+                  var nome = data[i].Nome;
+                  var telefone = data[i].Telefone;
+                  var telefone2 = data[i].Telefone2;
+                  var endereco = data[i].Endereco;
+                  var cpf = data[i].CPF;
+                  var row = "<tr><td contentEditable='false' > <button onclick=DeleteEntry(this.id) id="+index+">delete</button></td><td>" + index + "</td><td contentEditable='false'>" + nome + "</td><td contentEditable='false'>" + telefone + "</td><td contentEditable='false'>" + telefone2 + "</td><td contentEditable='false'>" + endereco + "</td><td contentEditable='false'>" + cpf + "</td></tr>";
+                  $("#myTable tbody").append(row);
+              }
+          }
+      });
+  });
 };
-function toggleEditable() {
-	var cells = document.getElementsByTagName("td");
-	for (var i = 0; i < cells.length; i++) {
-		if (cells[i].getAttribute("contentEditable") == "false") {
-			cells[i].setAttribute("contentEditable", "true");
-		} else {
-			cells[i].setAttribute("contentEditable", "false");
-		}
-	}
-}
 
 
 function updateData() {
@@ -96,8 +98,8 @@ function updateData() {
 	xhr.onload = function () {
 	  if (xhr.readyState === xhr.DONE) {
 		if (xhr.status === 200) {
-		  console.log(xhr.responseText)
-          alert("Salvo com sucesso!");;
+      toggleEditable()
+		  alert("Salvo com sucesso!");
 		} else {
             alert("Ocorreu um erro ao Salvar");
         }
@@ -145,4 +147,15 @@ function DeleteEntry(clickedid){
     };
     xhr.send(`id=${id}`);
    
+}
+
+function toggleEditable() {
+	var cells = document.getElementsByTagName("td");
+	for (var i = 0; i < cells.length; i++) {
+		if (cells[i].getAttribute("contentEditable") == "false") {
+			cells[i].setAttribute("contentEditable", "true");
+		} else {
+			cells[i].setAttribute("contentEditable", "false");
+		}
+	}
 }
