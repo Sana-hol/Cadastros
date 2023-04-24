@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <title>Lista de Cadastros</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -9,13 +9,14 @@
     <script src="getlist.js"></script>
     <script src="formatt.js"></script>
 </head>
-<body onload="GetList()">
+<body onload="GetListEdit()">
     <button onclick="toggleEditable()">Edit</button>
-    <button onclick="clearTable(); GetList();">Refresh clientes</button>
+    <button onclick="clearTable(); GetListEdit();" id="refreshButton">Refresh clientes</button>
     <button onclick="updateData()">save</button>
     <table id="myTable">
         <thead>
             <tr>
+                <th>deletar</th>
                 <th>index</th>
                 <th>Nome</th>
                 <th>Telefone</th>
