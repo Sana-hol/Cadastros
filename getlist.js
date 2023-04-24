@@ -38,7 +38,7 @@ function clearTableedit() {
     clearTable();
     };
 
-    
+
 function GetListEdit(){
   $(document).ready(function() {
       $.ajax({
@@ -134,8 +134,7 @@ function DeleteEntry(clickedid){
     xhr.onreadystatechange = function() {
       if (this.readyState === 4 && this.status === 200) {
         console.log(this.responseText)
-        clearTable()
-        GetListEdit();
+        clearTableedit() 
       }
     };
     xhr.send(`id=${id}`);
