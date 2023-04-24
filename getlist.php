@@ -1,16 +1,14 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "19372486";
+$host = "localhost";
+$user = "root";
+$pass = "19372486";
 $dbname = "new_schema";
+$conn = mysqli_connect($host, $user, $pass, $dbname);
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (mysqli_connect_errno()) {
+  die("Failed to connect to MySQL: " . mysqli_connect_error());
 }
 
 // Set up query to retrieve data from table
