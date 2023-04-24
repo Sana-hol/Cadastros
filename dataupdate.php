@@ -1,18 +1,17 @@
 <?php
-// Get the data sent from the client
+
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Connect to the database
 $host = "localhost";
 $user = "root";
-$password = "19372486";
+$pass = "19372486";
 $dbname = "new_schema";
-$conn = new mysqli($host, $user, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+$conn = mysqli_connect($host, $user, $pass, $dbname);
 
-// Update the data in the database
+
+if (mysqli_connect_errno()) {
+  die("Failed to connect to MySQL: " . mysqli_connect_error());
+}
 foreach ($data as $row) {
     $id = $row['id'];
     $nome = $row['nome'];

@@ -1,5 +1,5 @@
 <?php
-// Conect db
+
 $host = "localhost";
 $user = "root";
 $pass = "19372486";
@@ -7,12 +7,10 @@ $dbname = "new_schema";
 $conn = mysqli_connect($host, $user, $pass, $dbname);
 
 
-// Check for errors
 if (mysqli_connect_errno()) {
   die("Failed to connect to MySQL: " . mysqli_connect_error());
 }
 
-// Obter os dados do formulário
 $nome = $_POST["nome"];
 $telefone = $_POST["telefone"];
 $telefone2 = $_POST["telefone2"];
