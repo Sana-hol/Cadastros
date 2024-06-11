@@ -5,6 +5,22 @@ input[type=text], select {
 	display: inline-block;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+label{
+	margin: 0px;
+	
+
+
+}
+
+
+
+input[type=text] {
+	width: 100%;
+	padding: 6px 10px;
+	margin: 6px 0;
+	display: inline-block;
+	border: 1px solid #adadad;
+	border-radius: 2px;
 	box-sizing: border-box;
   }
   
@@ -14,6 +30,11 @@ input[type=text], select {
 	color: white;
 	padding: 14px 20px;
 	margin: 8px 0;
+	width: 100%;	
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 5px 0;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
@@ -51,6 +72,7 @@ input[type=text], select {
   
   th, td {
 	border: 1px solid black;
+	border: 1px solid rgb(70, 70, 70);
 	text-align: left;
 	padding: 8px;
   }
@@ -62,10 +84,11 @@ input[type=text], select {
   .save-button {
 	display: inline-block;
 	background-color: #4CAF50;
+	background-color: #1b4e1d;
 	color: white;
 	padding: 8px 20px;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
   }
-  
+}
