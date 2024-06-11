@@ -1,0 +1,80 @@
+label{
+	margin: 0px;
+	
+
+
+}
+
+
+
+input[type=text] {
+	width: 100%;
+	padding: 6px 10px;
+	margin: 6px 0;
+	display: inline-block;
+	border: 1px solid #adadad;
+	border-radius: 2px;
+	box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+	width: 100%;	
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 5px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+	background-color: #45a049;
+  }
+  
+  div {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+  }
+
+  button {
+	flex-basis: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+  }
+  
+  button {
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  
+  
+  table {
+	border-collapse: separate;
+	width: 100%;
+  }
+  
+  th, td {
+	border: 1px solid rgb(70, 70, 70);
+	text-align: left;
+	padding: 8px;
+  }
+  
+  th {
+	background-color: #dddddd;
+  }
+  
+  .save-button {
+	display: inline-block;
+	background-color: #1b4e1d;
+	color: white;
+	padding: 8px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  

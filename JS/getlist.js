@@ -24,25 +24,24 @@ function clearTableedit() {
     const form = document.getElementById("cliente-form");
     const data = new FormData(form);
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "cliente.php");
+        xhr.open("POST", "/cadastros/PHP/cliente.php");
         xhr.onload = () => {
         if (xhr.status === 200) {
             alert("Cliente cadastrado com sucesso!");
-            form.reset()
+            location.href = 'http://localhost/cadastros/listacadastrados.html';
             
         } else {
             alert("Ocorreu um erro ao cadastrar o cliente.");
         }
         };
         xhr.send(data);
-    clearTable();
     };
 
 
 function GetListEdit(){
   $(document).ready(function() {
       $.ajax({
-          url: "getlist.php",
+          url: "/cadastros/PHP/getlist.php",
           type: "GET",
           dataType: "json",
           success: function(data) {
@@ -86,7 +85,7 @@ function updateData() {
   
 	// Send the data to the server using AJAX
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "dataupdate.php", true);
+	xhr.open("POST", "/cadastros/PHP/dataupdate.php", true);
 	xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	xhr.onload = function () {
 	  if (xhr.readyState === xhr.DONE) {
@@ -105,7 +104,7 @@ function updateData() {
 function GetList(){
         $(document).ready(function() {
             $.ajax({
-                url: "getlist.php", 
+                url: "/cadastros/PHP/getlist.php", 
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
@@ -129,7 +128,7 @@ function GetList(){
 function DeleteEntry(clickedid){
     const id = clickedid;
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'delete.php', true);
+    xhr.open('POST', '/cadastros/PHP/delete.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
       if (this.readyState === 4 && this.status === 200) {

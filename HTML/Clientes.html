@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/cadastros/HTML/style.css">
+    <meta charset="UTF-8">
+    <title>Lista de Clientes</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/cadastros/JS/jquery.js"></script>
+    <script src="/cadastros/JS/getlist.js"></script>
+</head>
+  <body onload="GetList()">
+    <button onclick="location.href = '//localhost/cadastros/HTML/Cadastro.html';" >Cadastrar clientes</button>
+    <button onclick="clearTable();">⟳</button>
+    <table id="myTable">
+      <button onclick="location.href = '//localhost/cadastros/HTML/listacadastrados.html';" >Editar cadastros</button>
+      <thead>
+          <tr>
+              <th>index</th>
+              <th>Nome</th>
+              <th>Telefone</th>
+              <th>Telefone 2</th>
+              <th>Endereço</th>
+              <th>CPF</th>
+          </tr>
+      </thead>
+      <tbody>
+      </tbody>
+  </table>
+
+  <script src="cliente.js"></script>
+    
+  </body>
+</html>
